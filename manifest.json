@@ -1,0 +1,39 @@
+{
+  "manifest_version": 3,
+  "name": "流放之路2 市集交易助手",
+  "short_name": "POE2 Trade",
+  "version": "0.1.0",
+  "description": "增强流放之路2腾讯服网页市集体验：书签管理、等价价格、词缀高亮、相同结果合并等",
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "permissions": [
+    "storage"
+  ],
+  "host_permissions": [
+    "*://poe.game.qq.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://poe.game.qq.com/trade2/*",
+        "*://poe.game.qq.com/trade/*"
+      ],
+      "js": ["content.js"],
+      "css": [],
+      "run_at": "document_idle"
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["icons/*"],
+      "matches": ["*://poe.game.qq.com/*"]
+    }
+  ]
+}
