@@ -8,11 +8,8 @@ import { PinnedPanel } from './components/pinned';
 import { TradeLocationWatcher } from './services/trade-location';
 import { HistoryStore } from './stores/history-store';
 import { enhancerRegistry } from './enhancers/registry';
-import { regroupSimilarEnhancer } from './enhancers/regroup-similar';
 import { pinItemEnhancer, pinManager } from './enhancers/pin-item';
 import { highlightModsEnhancer } from './enhancers/highlight-mods';
-import { equivalentPricingEnhancer, currencyPricer } from './enhancers/equivalent-pricing';
-import { keyboardShortcutEnhancer } from './enhancers/keyboard-shortcut';
 
 export class App {
   private sidebar = new Sidebar();
@@ -94,10 +91,6 @@ export class App {
           HistoryStore.addEntry(loc, title);
         }
 
-        // Update currency rates when on a valid trade page
-        if (loc.league && loc.type === 'search') {
-          currencyPricer.ensureRates(loc.league).catch(() => {});
-        }
       }
 
       // Only re-render if the location slug actually changed
@@ -118,8 +111,6 @@ export class App {
     enhancerRegistry.register(regroupSimilarEnhancer);
     enhancerRegistry.register(pinItemEnhancer);
     enhancerRegistry.register(highlightModsEnhancer);
-    enhancerRegistry.register(equivalentPricingEnhancer);
-    enhancerRegistry.register(keyboardShortcutEnhancer);
 
     // Start the enhancer pipeline — use document.body since .resultset
     // may not be inside #trade on the Tencent server

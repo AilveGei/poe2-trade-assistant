@@ -421,36 +421,6 @@ function getStyles(): string {
   text-decoration: underline;
 }
 
-/* ─── Equivalent Price ─── */
-.ta-equivalent-price {
-  display: inline-block;
-  margin-left: 6px;
-  padding: 1px 6px;
-  background: #1a2a1a;
-  color: #6c6;
-  border-radius: 3px;
-  font-size: 11px;
-  cursor: help;
-}
-
-/* ─── Regroup Button ─── */
-.ta-regroup-btn {
-  background: #2a2a4e !important;
-  color: #c8c8d4 !important;
-  border: 1px solid #3a3a5e !important;
-  border-radius: 4px !important;
-  padding: 2px 8px !important;
-  font-size: 11px !important;
-  cursor: pointer !important;
-}
-.ta-regroup-btn:hover {
-  background: #3a3a6e !important;
-}
-.ta-regroup-btn.ta-expanded {
-  background: #3a3a1a !important;
-  border-color: #6a6a3e !important;
-}
-
 /* ─── Pin Button ─── */
 .ta-pin-btn {
   background: transparent !important;
